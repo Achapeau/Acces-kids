@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "telescope";
+    src: url("../public/fonts/AnnieUseYourTelescope-Regular.ttf");
+  }
+
+  @font-face {
+    font-family: "cherry";
+    src: url("../public/fonts/CherryBombOne-Regular.ttf");
+  }
+
+  @layer base {
+    html {
+      font-family: telescope, serif;
+    } 
+    h1, h2 {
+      font-family: cherry, serif;
+    }
+
+  }
