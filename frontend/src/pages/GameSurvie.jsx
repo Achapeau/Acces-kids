@@ -1,20 +1,25 @@
 import { useState } from "react";
-import image from "../assets/images/bonhomme-removebg-preview.png";
+
+import enfant from "../assets/images/bonhomme-removebg-preview.png";
 import image2 from "../assets/images/Survie.png";
-import image3 from "../assets/images/Group 10.png";
-import image4 from "../assets/images/gauche.png";
+import start from "../assets/images/start.png";
+import gauche from "../assets/images/Gauche.png";
 import image5 from "../assets/images/Group 6.png";
 import image6 from "../assets/images/Group 4.png";
 import image7 from "../assets/images/Group 2.png";
-import image8 from "../assets/images/maisondélabré-removebg-preview.png";
-import image9 from "../assets/images/lacdanger.png";
-import image10 from "../assets/images/baie.png";
-import image11 from "../assets/images/chat-removebg-preview.png";
-import image12 from "../assets/images/houseschool-removebg-preview.png";
-import image13 from "../assets/images/champi-removebg-preview.png";
-import image14 from "../assets/images/serpent-removebg-preview.png";
-import image15 from "../assets/images/Potager-removebg-preview.png";
-import image16 from "../assets/images/fallout-nope-boy-removebg-preview.png";
+import maison_delabre from "../assets/images/maisondélabré-removebg-preview.png";
+import marecage from "../assets/images/lacdanger.png";
+import baie from "../assets/images/baie.png";
+import chat from "../assets/images/chat-removebg-preview.png";
+import ecole from "../assets/images/houseschool-removebg-preview.png";
+import champi from "../assets/images/champi-removebg-preview.png";
+import serpent from "../assets/images/serpent-removebg-preview.png";
+import potager from "../assets/images/Potager-removebg-preview.png";
+import nope from "../assets/images/fallout-nope-boy-removebg-preview.png";
+import ButtonSpeakerOrange from "../components/ButtonSpeakerOrange";
+import ButtonSpeakerGreen from "../components/ButtonSpeakerGreen";
+import MenuReturnButton from "../components/MenuReturnButton";
+import ButtonIA from "../components/Button_ia";
 
 function Game() {
   const [characterPosition, setcharacterPosition] = useState({ x: 50, y: 50 });
@@ -87,7 +92,7 @@ function Game() {
 
   const startGame = () => {
     setScore(0);
-    setcharacterPosition({ x: 4, y: 78 });
+    setcharacterPosition({ x: 1, y: 78 });
   };
 
   const checkPopup = () => {
@@ -99,7 +104,7 @@ function Game() {
       characterPosition.y <= image9Coordinates.y2
     ) {
       setShowPopup(true);
-      setPopupImageSrc(image9);
+      setPopupImageSrc(marecage);
     }
     // Vérifiez si le personnage se déplace dans la zone de l'image 13 (Champi)
     else if (
@@ -109,7 +114,7 @@ function Game() {
       characterPosition.y <= image13Coordinates.y2
     ) {
       setShowPopup(true);
-      setPopupImageSrc(image13);
+      setPopupImageSrc(champi);
     }
     // Vérifiez si le personnage se déplace dans la zone de l'image 12 (School)
     else if (
@@ -119,7 +124,7 @@ function Game() {
       characterPosition.y <= image12Coordinates.y2
     ) {
       setShowPopup(true);
-      setPopupImageSrc(image12);
+      setPopupImageSrc(ecole);
     }
     // Vérifiez si le personnage se déplace dans la zone de l'image 15 (Potager)
     else if (
@@ -129,7 +134,7 @@ function Game() {
       characterPosition.y <= image15Coordinates.y2
     ) {
       setShowPopup(true);
-      setPopupImageSrc(image15);
+      setPopupImageSrc(nope);
     }
     // Si le personnage n'est pas dans les zones des images 9, 13, 12, et 15, masquez la popup
     else {
@@ -140,11 +145,18 @@ function Game() {
   
 
   return (
-    <div className="text-center mt-10 h-[88vh] w-full">
-      <h1 className="text-4xl font-bold mb-4">Jeu de survie</h1>
+    <div className="text-center mt-[1.5em] h-screen w-screen">
+       <ButtonIA />
+      <div className="absolute top-[10%]">
+      <MenuReturnButton />
+      </div>
+      <div className="flex justify-center items-center">
+      <h1 className="text-4xl text-yellow mb-4 mr-4">Jeu de survie</h1>
+      <ButtonSpeakerOrange text="jeu de survie, appui sur le bouton vert pour commencer et appui sur les flèche pour te déplacer" />
+      </div>
       <div className="">
         <div
-          className="relative bg-gray-300 h-96 mt-4 border-4 border-dashed border-gray-600 rounded-lg flex flex-col justify-center align-center objet-contain mx-auto max-w-[70%] m-[1rem]"
+          className="relative h-96 mt-4 rounded-lg flex flex-col justify-center align-center objet-contain mx-auto max-w-[70%] m-[1rem]"
           style={{
             backgroundImage: `url(${image2})`,
             backgroundSize: "100% auto",
@@ -153,21 +165,24 @@ function Game() {
           }}
         >
           <img
-            src={image8}
+            src={maison_delabre}
             alt="Maison Délabré"
-            className="w-32 h-32 absolute top-10 left-8 object-contain"
+            className="w-32 h-32 absolute top-10 left-[2.5%] object-contain"
           />
 
           {showPopup && (
-            <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-70">
-              <div className="bg-white p-4 rounded-lg shadow-lg">
+            <div className="justify-center items-center flex absolute top-0 left-0 w-full h-full">
+              <div className="bg-blue opacity-100 z-30 p-4 rounded-lg shadow-lg h-[30vh] w-[25vw]">
                 <img
-                  src={image16}
+                  src={nope}
                   alt="Popup Image"
-                  className="w-32 h-32 object-contain"
+                  className="w-[15rem] h-32 object-contain"
                 />
+                <div className="m-2">
+                <ButtonSpeakerGreen text="Fais demi tours, c'est dangereux"/>
+                </div>
                 <button
-                  className="text-red-500 text-xs mt-2 block mx-auto"
+                  className="text-almostWhite text-xs mt-2 block mx-auto"
                   onClick={() => setShowPopup(false)}
                 >
                   Fermer
@@ -177,45 +192,45 @@ function Game() {
           )}
 
           <img
-            src={image9}
+            src={marecage}
             alt="Lac Danger"
             className="w-32 h-32 absolute bottom-0 left-1/3 transform -translate-x-2/2 object-contain"
           />
 
           <img
-            src={image10}
+            src={baie}
             alt="Baie"
-            className="w-32 h-32 absolute top-0 left-1/4 transform -translate-x-4/4 object-contain"
+            className="w-32 h-32 absolute top-20 right-[17%] transform -translate-x-4/4 object-contain"
           />
 
           <img
-            src={image11}
+            src={chat}
             alt="Chat"
-            className="w-28 h-40 absolute bottom-12 left-1/2 transform -translate-x-1/2 object-contain"
+            className="w-[6rem] h-[6rem] absolute bottom-[12.5rem] left-[38%] transform -translate-x-1/2 object-contain"
           />
 
           <img
-            src={image12}
+            src={ecole}
             alt="School"
             className="w-32 h-32 absolute top-0 left-1/2 transform -translate-x-4/4 object-contain"
           />
 
           <img
-            src={image13}
+            src={champi}
             alt="Champi"
             className="w-28 h-40 absolute bottom-5 right-1/3 transform -translate-x-4/4 object-contain"
           />
 
           <img
-            src={image14}
+            src={serpent}
             alt="Serpent"
-            className="w-32 h-32 absolute top-10 right-20 object-contain"
+            className="w-28 h-28 absolute top-[3.5rem] right-[2%] object-contain"
           />
 
           <img
-            src={image15}
+            src={potager}
             alt="Potager"
-            className="w-28 h-32 absolute bottom-0 right-20 object-contain"
+            className="w-[8rem] h-32 absolute bottom-0 right-2 object-contain"
           />
 
           <div className="absolute w-full h-2 bg-gray-600 top-1/4" />
@@ -239,52 +254,52 @@ function Game() {
             }}
           >
             <img
-              src={image}
+              src={enfant}
               alt="character"
               className="w-16 h-20 absolute top-0 transform -translate-y-8 object-contain"
             />
           </div>
         </div>
       </div>
-      <div className="mt5">
+      <div className="mt-0 mb-5">
         <button
-          className="w-20 h-20 bg-[#B2C84F] hover:bg-green-600 text-white font-bold py-4 px-4 mr-5 rounded"
+          className="w-[9rem] h-[6rem] m-2"
     onClick={startGame}
   >
     <img
-    src={image3} className="object-contain" />
+    src={start} className="object-contain w-[9rem]" />
     
   </button>
   <button
-    className="w-20 h-20 bg-[#F5BC49] hover:bg-orange-600 text-white font-bold py-4 px-4 mr-5 rounded"
+    className="w-[9rem] h-[6rem] m-2"
     onClick={moveLeft}
   >
     <img
-    src={image4} className="object-contain" />
+    src={gauche} className="object-contain w-[9rem]" />
 
   </button>
   <button
-    className="w-20 h-20 bg-[#E7F2C1] hover:bg-green-600 text-white font-bold py-4 px-4 ml-4 mr-5 rounded"
+    className="w-[9rem] h-[6rem] m-2"
     onClick={moveRight}
   >
     <img
-    src={image5} className="object-contain" />
+    src={image5} className="object-contain w-[9rem]" />
 
   </button>
   <button
-    className="w-20 h-20 bg-[#F094C4] hover:bg-green-600 text-white font-bold py-4 px-4 ml-4 mr-5 rounded"
+    className="w-[9rem] h-[6rem] m-2"
     onClick={moveUp}
   >
     <img
-    src={image6} className="object-contain" />
+    src={image6} className="object-contain w-[9rem]" />
    
   </button>
   <button
-    className="w-20 h-20 bg-[#E7F2C1] hover:bg-green-600 text-white font-bold py-4 px-4 ml-3 mr-5 rounded"
+    className="w-[9rem] h-[6rem] m-2"
     onClick={moveDown}
   >
    <img
-    src={image7} className="object-contain" />
+    src={image7} className="object-contain w-[9rem]" />
   </button>
 </div>
     </div>

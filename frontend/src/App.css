@@ -17,7 +17,7 @@
       font-family: telescope, serif;
       background-image: url(./assets/images/background-acceskids.png);
       background-repeat: no-repeat;
-
+      overflow-y: hidden;
       opacity: 95%;
 
       background-size: cover;

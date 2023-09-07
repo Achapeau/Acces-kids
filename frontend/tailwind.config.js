@@ -28,8 +28,10 @@ export default {
       "waving-illustra": "wave 2s linear infinite 700ms",
       
     },
-    extend: {},
-    extend: {
+    extend: {      
+      backgroundImage: {
+      'background-modal': "url('./src/assets/images/background-acceskids.png')",
+    },
       keyframes: {
         slideFromTop: {
           from: {
