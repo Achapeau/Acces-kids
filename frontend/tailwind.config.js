@@ -2,7 +2,6 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    
     colors: {
       pink: "#f094c4",
       yellow: "#f5bc49",
@@ -10,13 +9,13 @@ export default {
       blue: "#92ccf0",
       greenDark: "#859c39",
       almostWhite: "#e7f2c1",
+      almostBlack: "#31332B",
     },
-    extend: {
-    },
+    extend: {},
     fontFamily: {
       text: ["telescope", "serif"],
       heading: ["cherry", "serif"],
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
