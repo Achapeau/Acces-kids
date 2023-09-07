@@ -36,7 +36,9 @@ function GameChoices() {
         <h2 className="font-title text-[2rem] max-[1000px]:text-[1em] text-greenDark text-center" > Apprendre à compter </h2>
         <ButtonSpeaker text="Apprendre à compter"/>
         <button className="w-[25rem] max-[1000px]:w-[10em] h-[20rem] max-[1000px]:h-[5em] justify-center items-center">
+          <Link to="/jeux/nombres">
         <img src={jeux123} alt="illustration d'enfants avec des numéros géants" className="w-[25rem] max-[1000px]:w-[15em] object-contain"/>
+          </Link>
         </button>
         </div>
       </div>
