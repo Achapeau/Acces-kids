@@ -40,8 +40,8 @@ function ButtonSpeakerOrange({ text }) {
 
   return (
     <div className="">
-      <button onClick={() => setIsPlaying(!isPlaying)} className="w-fit h-[2rem] m-[0rem]">
-        <img src={speaker_orange} alt="icone speaker" className="object-contain" />
+      <button onClick={() => setIsPlaying(!isPlaying)} className="w-fit h-[2rem] max-[1000px]:h-[0.5em] m-[0rem]">
+        <img src={speaker_orange} alt="icone speaker" className="object-contain max-[1000px]:h-[1.5em]" />
       </button>
     </div>
   );
