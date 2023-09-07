@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import fleche from "../assets/images/flèche_gauche.png"
+import fleche from "../assets/images/flèche_gauche.png";
 
 function MenuReturnButton() {
     return (    
@@ -16,4 +16,4 @@ function MenuReturnButton() {
   }
   
   export default MenuReturnButton;
-  
+
