@@ -6,7 +6,9 @@ import AppRoutes from "../src/routes/AppRoutes";
 function App() {
   return (
     <BrowserRouter>
-      <AppRoutes />
+
+        <AppRoutes />
+
     </BrowserRouter>
   );
 }
