@@ -21,6 +21,7 @@ function Home() {
           <Link to="/jeux">
             <img src={lecture} alt=" illustration d'une petite fille assise sur une pile de livre qui lit un livre" className="w-[15rem] object-contain"/>
           </Link>
+
         </button>
         </div>
         

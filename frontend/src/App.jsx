@@ -1,5 +1,4 @@
 import { BrowserRouter } from "react-router-dom";
-
 import "./App.css";
 import AppRoutes from "../src/routes/AppRoutes";
 import NavBar from "./components/NavBar";
@@ -16,6 +15,7 @@ function App() {
         <Footer />
       </div>
     </BrowserRouter>
+    
   );
 }
 
