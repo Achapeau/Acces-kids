@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import ButtonSpeakerGreen from './ButtonSpeakerGreen';
 
 function messageIA({ messageOne, messageTwo, messageThree }) {
     const [stateOne, setStateOne] = useState(false);
@@ -11,23 +12,42 @@ function messageIA({ messageOne, messageTwo, messageThree }) {
         setStateThree(false)
         setTimeout(() => {
             setStateOne(true);
-        })
+        }, 3000)
         setTimeout(() => {
             setStateTwo(true)
-        }, 4000);
+        }, 6000);
         setTimeout(() => {
             setStateThree(true)
-        }, 6000)
-    }, [stateOne, stateTwo, stateThree])
+        }, 9000)
+    }, [messageOne])
+
   return (
-    <div className='h-[70vh] w-[70vw] bg-yellow rounded-lg mx-auto text-greenDark items-center justify-center'>
+    <div className='h-[70vh] w-[50vw] bg-yellow rounded-lg mx-auto text-greenDark items-center justify-center mx-20'>
         
-        {stateOne && <div className='h-[20vh] w-[70vw] bg-pink text-3xl'>{messageOne}</div>}
-        {stateTwo && <div className='h-[20vh] w-[70vw] bg-pink text-3xl'>{messageTwo}</div>}
-        {stateThree && <div className='h-[20vh] w-[70vw] bg-pink text-3xl'>{messageThree}</div>}
+        {stateOne && 
+        <div className='flex items-center justify-center h-[20vh] w-[50vw] text-3xl'>
+            "1"
+            <img src="../src/assets/images/baie.png" alt="baie" className='h-[12vh] w-[12vh]' />
+            <ButtonSpeakerGreen text={"1"} />
+        </div>}
+        {stateTwo && 
+        <div className='flex items-center justify-center h-[20vh] w-[50vw] text-3xl'>
+            "2"
+            <img src="../src/assets/images/baie.png" alt="baie" className='h-[12vh] w-[12vh]' />
+            <img src="../src/assets/images/baie.png" alt="baie" className='h-[12vh] w-[12vh]' />
+            <ButtonSpeakerGreen text={"2"} />
+        </div>}
+        {stateThree && 
+        <div className='flex items-center justify-center h-[20vh] w-[50vw] text-3xl'>
+            "3"
+            <img src="../src/assets/images/baie.png" alt="baie" className='h-[12vh] w-[12vh]' />
+            <img src="../src/assets/images/baie.png" alt="baie" className='h-[12vh] w-[12vh]' />
+            <img src="../src/assets/images/baie.png" alt="baie" className='h-[12vh] w-[12vh]' />
+            <ButtonSpeakerGreen text={"3"} />
+        </div>}
         
     </div>
   )
 }
 
-export default messageIA
+export default messageIA;

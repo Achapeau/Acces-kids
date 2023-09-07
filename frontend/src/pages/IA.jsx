@@ -16,7 +16,10 @@ function IA() {
         }
 
     const lire = () => {
-        setData([])
+        setIsActive(true)
+        setMessageOne("Repeat")
+        setMessageTwo("Eat")
+        setMessageThree('Sleep')
       
     }
 
@@ -49,7 +52,7 @@ function IA() {
         {/* <NavBar /> */}
             <div className='flex items-center space-between justify-center'>
                 {!isActive ?
-                    <div className='flex flex-wrap space-evenly rounded-lg h-[70vh] w-[70vw] bg-almostWhite mx-auto '>
+                    <div className='flex flex-wrap space-evenly rounded-lg h-[70vh] w-[70vw] bg-almostWhite mx-20 '>
                         <div className='m-auto rounded-lg h-[20vw] w-[20vw]'>
                             <button 
                                 type='button'
@@ -92,7 +95,7 @@ function IA() {
                         </div>                    
                     </div>
                 :
-                <div className='flex flex-wrap space-evenly rounded-lg h-[20vh] w-[20vw] bg-almostWhite mx-auto '>
+                <div className='flex flex-wrap space-evenly rounded-lg h-[20vh] w-[20vw] bg-almostWhite mx-auto -b-15'>
                         <div className='m-auto rounded-lg h-[6vw] w-[6vw]'>
                             <button 
                                 type='button'
