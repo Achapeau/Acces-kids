@@ -6,15 +6,14 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    
     <BrowserRouter>
-     <div className=" h-screen">
-    <NavBar />
-    <div className="max-h-[88vh]">
-      <AppRoutes />
+      <div className=" h-screen">
+        <NavBar />
+        <div className="max-h-[88vh]">
+          <AppRoutes />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-     </div>
     </BrowserRouter>
     
   );

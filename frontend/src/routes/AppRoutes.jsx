@@ -12,7 +12,7 @@ function AppRoutes() {
       <Route path="/" element={<Home />} />
       <Route path="/gamesurvie" element={<GameSurvie />} />
       <Route path="/jeux" element={<GameChoices />} />
-      <Route path="/alphabet" element={<Alphabet />} />
+      <Route path="/jeux/alphabet" element={<Alphabet />} />
       <Route path="*" element={<NoMatch />} />
     </Routes>
   );
