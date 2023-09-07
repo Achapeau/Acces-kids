@@ -33,7 +33,9 @@ function Alphabet() {
     <main className="bg-blue">
       <div className="mx-11">
         <div className="flex justify-center py-10">
-          <h1 className="text-5xl text-pink">Apprends l'alphabet</h1>
+
+          <h1 className="text-5xl text-pink">Apprends l&apos alphabet</h1>
+
           <img src={speaker} alt="speaker" className="w-10 items-center ml-6" />
         </div>
         {isLoading ? (
