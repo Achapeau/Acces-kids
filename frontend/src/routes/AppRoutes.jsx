@@ -3,7 +3,7 @@ import Home from "../pages/Home";
 import NoMatch from "../pages/NoMatch";
 import Alphabet from "../pages/Alphabet";
 import GameSurvie from "../pages/GameSurvie";
-import ModalAnimal from "../components/ModalAnimal";
+import GameChoices from "../pages/GamesChoices";
 
 function AppRoutes() {
   return (
@@ -11,8 +11,8 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/gamesurvie" element={<GameSurvie />} />
+      <Route path="/jeux" element={<GameChoices />} />
       <Route path="/alphabet" element={<Alphabet />} />
-      <Route path="/modal" element={<ModalAnimal />} />
       <Route path="*" element={<NoMatch />} />
     </Routes>
   );
