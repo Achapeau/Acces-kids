@@ -12,4 +12,16 @@ const browse = async (req, res) => {
   }
 };
 
-module.exports = { browse };
+const getImages = async (req, res) => {
+  const number = parseInt(req.params.number);
+
+  try {
+    const [result] = await AnimalInstance.findImages(number);
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json;
+  }
+};
+
+module.exports = { browse, getImages };

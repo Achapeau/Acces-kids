@@ -11,7 +11,23 @@ export default {
       almostWhite: "#e7f2c1",
       almostBlack: "#31332B",
     },
-    extend: {},
+    extend: {
+      keyframes: {
+        slideFromTop: {
+          from: {
+            transform: "translateY(-100%)",
+            opacity: "0",
+          },
+          to: {
+            transform: "translateY(0)",
+            opacity: "1",
+          },
+        },
+      },
+      animation: {
+        slide: "slideFromTop 1s ",
+      },
+    },
     fontFamily: {
       text: ["telescope", "serif"],
       heading: ["cherry", "serif"],
