@@ -32,9 +32,19 @@ const readOneImage = async (req, res) => {
   }
 };
 
-const readOneImageAndLetter = async (req, res) => {
+const readRandomOneImage = async (req, res) => {
   try {
-    const [result] = await AnimalInstance.findOneImageAndLetter();
+    const [result] = await AnimalInstance.findThreeImageAndLetter();
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json;
+  }
+};
+
+const readThreeImageAndLetter = async (req, res) => {
+  try {
+    const [result] = await AnimalInstance.findThreeImageAndLetter();
     res.json(result);
   } catch (err) {
     console.error(err);
@@ -46,5 +56,6 @@ module.exports = {
   browse,
   readTenRandomly,
   readOneImage,
-  readOneImageAndLetter,
+  readThreeImageAndLetter,
+  readRandomOneImage,
 };

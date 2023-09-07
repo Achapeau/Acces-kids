@@ -1,26 +1,46 @@
 import { useEffect, useState } from 'react'
+import axios from "axios";
 import MessageIA from '../components/messageIA'
 
 function IA() {
-    const [messageOne, setMessageOne] = useState({})
+    const [chiffre, setChiffre] = useState('')
     const [isActive, setIsActive] = useState(false)
     const [data, setData] = useState([])
-    const [messageTwo, setMessageTwo] = useState([]);
-    const [messageThree, setMessageThree] = useState([])
+    const [alphabet, setAlphabet] = useState({})
+    const [data2, setData2] = useState([])
+    const [educatif, setEducatif] = useState(false)
 
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+    
+    useEffect(() => {
+        axios.get(`${backendUrl}/iaalphabet`)
+        .then((response) => {
+            setData(response.data);
+        })
+        .catch((err) => console.error(err));
+
+        axios.get(`${backendUrl}/iacompter`)
+        .then((response) => {
+            setData2(response.data);
+        })
+        .catch((err) => console.error(err));
+        
+    }, []);
+
+    console.log(alphabet);
+    
     const compter = () => {
         setIsActive(true)
-        setMessageOne("Eat")
-        setMessageTwo("Sleep")
-        setMessageThree('Rave')
-        }
-
+        setAlphabet([])
+        setChiffre(data2)
+        
+    }
+    
     const lire = () => {
         setIsActive(true)
-        setMessageOne("Repeat")
-        setMessageTwo("Eat")
-        setMessageThree('Sleep')
-      
+        setChiffre([])
+        setAlphabet(data) 
     }
 
     const survie = () => {
@@ -30,9 +50,10 @@ function IA() {
     }
 
     const apprendre = () => {
+        setIsActive(true)
         setData([])
+        setEducatif(true)
 
-        console.log(data);
     }
 
     const explication = () => {
@@ -40,16 +61,10 @@ function IA() {
 
         console.log(data);
     }
-
-    useEffect(() =>{ 
-    if (data.length) {
-        setIsActive(true)
-    }}, [data.length]
-    )
     
   return (
     <div className="flex items-center space-between justify-center h-[88vh]">
-        {/* <NavBar /> */}
+
             <div className='flex items-center space-between justify-center'>
                 {!isActive ?
                     <div className='flex flex-wrap space-evenly rounded-lg h-[70vh] w-[70vw] bg-almostWhite mx-20 '>
@@ -138,7 +153,7 @@ function IA() {
                         </div>                    
                     </div>}
                 {isActive && 
-                <MessageIA messageOne={ messageOne } messageTwo={messageTwo} messageThree={messageThree} />}
+                <MessageIA chiffre={ chiffre } alphabet={ alphabet } educatif={ educatif } />}
 
             </div>
                 
