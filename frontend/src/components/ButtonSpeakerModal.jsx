@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import speaker from "../assets/images/Speaker.png";
 
-function ButtonSpeakerGreen({ text }) {
+function ButtonSpeakerModal({ text }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [speech, setSpeech] = useState(null);
 
@@ -44,16 +44,16 @@ function ButtonSpeakerGreen({ text }) {
     <div className="">
       <button
         onClick={() => setIsPlaying(!isPlaying)}
-        className="w-fit h-[2rem] m-[0rem]"
+        className="w-fit h-[5rem] m-[0rem]"
       >
-        <img src={speaker} alt="icone speaker" className="object-contain" />
+        <img src={speaker} className="h-14" alt="icone speaker" />
       </button>
     </div>
   );
 }
 
-ButtonSpeakerGreen.propTypes = {
+ButtonSpeakerModal.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-export default ButtonSpeakerGreen;
+export default ButtonSpeakerModal;

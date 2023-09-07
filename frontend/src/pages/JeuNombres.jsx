@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import speaker from "../../public/icons/Speaker.png";
 import NumberWin from "../components/numberWin";
-import NumberLoose from "../components/numberLoose";
+import NumberLoose from "../components/NumberLoose";
+import ButtonSpeakerGreen from "../components/ButtonSpeakerGreen";
 
 function JeuNombres() {
   const [images, setImages] = useState([]);
@@ -82,31 +83,40 @@ function JeuNombres() {
 
   return (
     <>
-      <div className="h-screen w-screen flex flex-col items-center justify-around">
+      <div className="w-screen h-[80vh] max-[1000px]:h-[75vh]  flex flex-col items-center">
         <div className="flex items-center">
-          <h1 className="text-pink text-5xl font-heading my-10">
-            Apprend à compter
+          <h1 className="text-pink text-5xl max-[1000px]:text-3xl font-heading my-5 mx-5">
+            Apprends à compter
           </h1>
-          <img src={speaker} className="h-15 ml-10 translate-y-2" />
+          <div className="translate-y-3">
+            <ButtonSpeakerGreen text="Compte les animaux" />
+          </div>
         </div>
-        <div className="flex flex-wrap justify-around items-center h-3/5 w-full p-5">
-          {images.length > 0 &&
-            displayedImages.map((image) => (
-              <img
-                className="h-[170px] animate-slide"
-                src={`../../src/assets/images/${image.image_animal}`}
-              />
-            ))}
-        </div>
+        <div className="flex flex-col h-[70vh] max-[1000px]:flex-row justify-around max-[1000px]:justify-between items-center">
+          <div className="flex flex-wrap justify-around items-center w-full max-[1000px]:w-4/6 max-[1000px]:mr-4 p-3">
+            {images.length > 0 &&
+              displayedImages.map((image) => (
+                <img
+                  className="h-[160px] max-[1000px]:h-[70px] animate-slide m-4 max-[1000px]:m-2"
+                  src={`../../src/assets/images/${image.image_animal}`}
+                />
+              ))}
+          </div>
 
-        <div className="mb-24">
-          {numbers.map((elem) => (
-            <button onClick={() => checkGame(elem.number)}>
-              <h1 className={`text-${elem.color} text-8xl px-5`}>
-                {elem.number}
-              </h1>
-            </button>
-          ))}
+          <div className="max-[1000px]:w-2/6 max-[1000px]:flex max-[1000px]:flex-wrap max-[1000px]:justify-center">
+            {numbers.map((elem) => (
+              <button
+                className="focus:scale-[1.1] transition-transform duration-300 ease-in-out"
+                onClick={() => checkGame(elem.number)}
+              >
+                <h1
+                  className={`text-${elem.color} text-8xl max-[1000px]:text-4xl px-5 max-[1000px]:my-2 `}
+                >
+                  {elem.number}
+                </h1>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
       {winning && (
