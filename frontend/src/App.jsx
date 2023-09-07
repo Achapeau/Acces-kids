@@ -7,10 +7,12 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
+    
     <BrowserRouter>
-      <NavBar />
+     <div className=" h-screen">
+    <NavBar />
+    <div className="max-h-[88vh]">
       <AppRoutes />
-      <Footer />
     </BrowserRouter>
   );
 }
