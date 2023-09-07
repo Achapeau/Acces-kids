@@ -27,15 +27,17 @@ function Alphabet() {
   return (
     <main className="px-11">
       <div className={openModal ? "blur bg-blue h-[85vh]" : "blur-none"}>
-        <div className="flex justify-center pt-4 pb-10">
-          <div className="absolute -top-5 -left-20">
+        <div className="flex justify-center pt-4 pb-10 max-[1000px]:pb-4">
+          <div className="absolute -top-5 -left-20 max-[1000px]:-left-10 max-[1000px]:top-3">
             <MenuReturnButton />
           </div>
-          <h1 className="text-5xl text-pink mr-6">Apprends l&apos;alphabet</h1>
+          <h1 className="text-5xl text-pink mr-6 max-[1000px]:text-3xl">
+            Apprends l&apos;alphabet
+          </h1>
           <div className="mt-3">
             <ButtonSpeakerOrange text="Apprends l'alphabet" />
           </div>
-          <div className="absolute -top-5 -right-10">
+          <div className="absolute -top-20 -right-10 max-[1000px]:-top-12">
             <Button_ia />
           </div>
         </div>
@@ -47,7 +49,7 @@ function Alphabet() {
               {animals.map((elem) => (
                 <div
                   key={elem.id}
-                  className="max-h-64 flex self-center justify-self-center"
+                  className="max-h-64 flex self-center justify-self-center max-[1000px]:h-24 max-[1000px]:justify-center"
                 >
                   <img
                     src={`../src/assets/images/${elem.image_animal}`}

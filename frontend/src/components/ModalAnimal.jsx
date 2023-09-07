@@ -8,7 +8,7 @@ const ModalAnimal = ({ animal, setOpenModal }) => {
       <button type="button" onClick={() => setOpenModal(false)}>
         <div className="fixed z-10 top-0 bottom-0 left-0 right-0 backdrop-blur" />
       </button>
-      <div className="flex place-content-center items-center w-[700px] h-[383px] bg-almostWhite z-20 absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 rounded-lg mx-4">
+      <div className="flex place-content-center items-center w-[700px] h-[383px] bg-almostWhite z-20 absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 rounded-lg mx-4 max-[1000px]:w-[600px] max-[1000px]:h-[300px]">
         <img
           src={`../src/assets/images/${animal.image_animal}`}
           alt={animal.name}
