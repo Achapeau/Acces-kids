@@ -91,7 +91,7 @@ function JeuNombres() {
         </div>
         <div className="flex flex-wrap justify-around items-center h-3/5 w-full p-5">
           {images.length > 0 &&
-            displayedImages.map((image, index) => (
+            displayedImages.map((image) => (
               <img
                 className="h-[170px] animate-slide"
                 src={`../../src/assets/images/${image.image_animal}`}
