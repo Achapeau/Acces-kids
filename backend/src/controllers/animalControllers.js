@@ -12,6 +12,18 @@ const browse = async (req, res) => {
   }
 };
 
+const getImages = async (req, res) => {
+  const number = parseInt(req.params.number);
+
+  try {
+    const [result] = await AnimalInstance.findImages(number);
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json;
+  }
+};
+
 const readTenRandomly = async (req, res) => {
   try {
     const [result] = await AnimalInstance.findTenRandomly();
@@ -44,6 +56,7 @@ const readOneImageAndLetter = async (req, res) => {
 
 module.exports = {
   browse,
+  getImages,
   readTenRandomly,
   readOneImage,
   readOneImageAndLetter,
