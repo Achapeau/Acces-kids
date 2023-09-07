@@ -1,4 +1,3 @@
--- Active: 1692734908087@@127.0.0.1@3306@access_kids
 -- MySQL dump 10.13  Distrib 8.0.33, for macos13 (arm64)
 --
 -- Host: localhost    Database: access_kids
@@ -40,7 +39,7 @@ CREATE TABLE `animal` (
 
 LOCK TABLES `animal` WRITE;
 /*!40000 ALTER TABLE `animal` DISABLE KEYS */;
-INSERT INTO `animal` VALUES (1,'Alpaga','A','alpaga.png',NULL,NULL),(2,'Éléphant','E','elephant.png',NULL,NULL),(3,'Castor','C','castor.png',NULL,NULL),(4,'Ours','O','ours.png',NULL,NULL),(5,'Hérisson','H','herisson.png',NULL,NULL),(6,'Iguane','I','iguane.png',NULL,NULL),(7,'Jaguar','J','jaguar.png',NULL,NULL),(8,'Koala','K','koala.png',NULL,NULL),(9,'Lion','L','lion.png',NULL,NULL),(10,'Souris','S','souris.png',NULL,NULL),(11,'Raton Laveur','R','raton-laveur.png',NULL,NULL),(12,'Yak','Y','yak.png',NULL,NULL),(13,'Vautour','V','vautour.png',NULL,NULL),(14,'Tortue','T','tortue.png',NULL,NULL),(15,'Zèbre','Z','zebre.png',NULL,NULL),(16,'Baleine','B','baleine.png',NULL,NULL),(17,'Dauphin','D','dauphin.png',NULL,NULL),(18,'Méduse','M','meduse.png',NULL,NULL),(19,'Poisson','P','poisson.png',NULL,NULL),(20,'Grenouille','G','grenouille.png',NULL,NULL),(21,'Flamant rose','F','flamant.png',NULL,NULL),(22,'Narval','N','narval.png',NULL,NULL),(23,'Quokka','Q','quokka.png',NULL,NULL),(24,'Urial','U','urial.png',NULL,NULL),(25,'Wallaby','W','wallaby.png',NULL,NULL),(26,'Xérus','X','xerus.png',NULL,NULL);
+INSERT INTO `animal` VALUES (1,'Alpaga','A','alpaga.png',NULL,NULL),(2,'Éléphant','E','elephant.png',NULL,NULL),(3,'Chouette','C','chouette.png',NULL,NULL),(4,'Ours','O','ours.png',NULL,NULL),(5,'Hérisson','H','herisson.png',NULL,NULL),(6,'Iguane','I','iguane.png',NULL,NULL),(7,'Jaguar','J','jaguar.png',NULL,NULL),(8,'Koala','K','koala.png',NULL,NULL),(9,'Lion','L','lion.png',NULL,NULL),(10,'Souris','S','souris.png',NULL,NULL),(11,'Raton Laveur','R','raton-laveur.png',NULL,NULL),(12,'Yak','Y','yak.png',NULL,NULL),(13,'Vautour','V','vautour.png',NULL,NULL),(14,'Tortue','T','tortue.png',NULL,NULL),(15,'Zèbre','Z','zebre.png',NULL,NULL),(16,'Baleine','B','baleine.png',NULL,NULL),(17,'Dauphin','D','dauphin.png',NULL,NULL),(18,'Méduse','M','meduse.png',NULL,NULL),(19,'Poisson','P','poisson.png',NULL,NULL),(20,'Grenouille','G','grenouille.png',NULL,NULL),(21,'Flamant rose','F','flamant.png',NULL,NULL),(22,'Narval','N','narval.png',NULL,NULL),(23,'Quokka','Q','quokka.png',NULL,NULL),(24,'Urial','U','urial.png',NULL,NULL),(25,'Wallaby','W','wallaby.png',NULL,NULL),(26,'Xérus','X','xerus.png',NULL,NULL);
 /*!40000 ALTER TABLE `animal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,4 +102,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-07  9:15:46
+-- Dump completed on 2023-09-07 17:34:11

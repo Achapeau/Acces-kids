@@ -20,7 +20,7 @@ function ButtonSpeakerGreen({ text }) {
       const voices = speechSynthesis.getVoices();
 
       if (voices.length > 0) {
-        sp.voice = voices[5];
+        sp.voice = voices[1];
       }
 
       speechSynthesis.speak(sp);
