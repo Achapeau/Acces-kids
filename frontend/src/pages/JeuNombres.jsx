@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import speaker from "../../public/icons/Speaker.png";
+
 import NumberWin from "../components/numberWin";
 import NumberLoose from "../components/NumberLoose";
 import ButtonSpeakerGreen from "../components/ButtonSpeakerGreen";
+import ButtonIA from "../components/Button_ia";
+import MenuReturnButton from "../components/MenuReturnButton";
 
 function JeuNombres() {
   const [images, setImages] = useState([]);
@@ -84,8 +86,14 @@ function JeuNombres() {
   return (
     <>
       <div className="w-screen h-[80vh] max-[1000px]:h-[75vh]  flex flex-col items-center">
+        <div className="fixed top-20 right-1 max-[1000px]:top-10 max-[1000px]:right-0">
+          <ButtonIA />
+        </div>
+        <div className="fixed top-20 left-1 max-[1000px]:top-10 max-[1000px]:left-0">
+          <MenuReturnButton />
+        </div>
         <div className="flex items-center">
-          <h1 className="text-pink text-5xl max-[1000px]:text-3xl font-heading my-5 mx-5">
+          <h1 className="text-pink text-5xl max-[1000px]:text-3xl font-heading my-5 mt-10 mx-5">
             Apprends à compter
           </h1>
           <div className="translate-y-3">
@@ -97,7 +105,7 @@ function JeuNombres() {
             {images.length > 0 &&
               displayedImages.map((image) => (
                 <img
-                  className="h-[160px] max-[1000px]:h-[70px] animate-slide m-4 max-[1000px]:m-2"
+                  className="h-[150px] max-[1000px]:h-[70px] animate-slide m-4 max-[1000px]:m-2"
                   src={`../../src/assets/images/${image.image_animal}`}
                 />
               ))}
