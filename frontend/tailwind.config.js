@@ -10,6 +10,7 @@ export default {
       blue: "#92ccf0",
       greenDark: "#859c39",
       almostWhite: "#e7f2c1",
+      almostBlack: "#31332B",
     },
     extend: {
     },
