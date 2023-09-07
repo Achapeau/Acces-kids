@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import speaker from "../assets/images/speaker.svg";
 import ModalAnimal from "../components/ModalAnimal";
+import ButtonSpeakerOrange from "../components/ButtonSpeakerOrange";
+import MenuReturnButton from "../components/MenuReturnButton";
+import Button_ia from "../components/Button_ia";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -23,11 +25,19 @@ function Alphabet() {
   }, []);
 
   return (
-    <main className="">
+    <main className="px-11">
       <div className={openModal ? "blur bg-blue h-[85vh]" : "blur-none"}>
         <div className="flex justify-center pt-4 pb-10">
-          <h1 className="text-5xl text-pink">Apprends l&apos;alphabet</h1>
-          <img src={speaker} alt="speaker" className="w-10 items-center ml-6" />
+          <div className="absolute -top-5 -left-20">
+            <MenuReturnButton />
+          </div>
+          <h1 className="text-5xl text-pink mr-6">Apprends l&apos;alphabet</h1>
+          <div className="mt-3">
+            <ButtonSpeakerOrange text="Apprends l'alphabet" />
+          </div>
+          <div className="absolute -top-5 -right-10">
+            <Button_ia />
+          </div>
         </div>
         {isLoading ? (
           <h1>Chargement en cours</h1>

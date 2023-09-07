@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 
+import ButtonSpeakerOrange from "./ButtonSpeakerOrange";
+
 const ModalAnimal = ({ animal, setOpenModal }) => {
   return (
     <div>
@@ -17,6 +19,11 @@ const ModalAnimal = ({ animal, setOpenModal }) => {
             {animal.name.charAt(0)}
             <span className="text-6xl">{animal.name.slice(1, 30)}</span>
           </h1>
+        </div>
+        <div className="-mt-60">
+          <ButtonSpeakerOrange
+            text={`${animal.corresponding_letter} comme ${animal.name}`}
+          />
         </div>
       </div>
     </div>

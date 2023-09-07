@@ -22,4 +22,29 @@ const readTenRandomly = async (req, res) => {
   }
 };
 
-module.exports = { browse, readTenRandomly };
+const readOneImage = async (req, res) => {
+  try {
+    const [result] = await AnimalInstance.findOneImage();
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json;
+  }
+};
+
+const readOneImageAndLetter = async (req, res) => {
+  try {
+    const [result] = await AnimalInstance.findOneImageAndLetter();
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json;
+  }
+};
+
+module.exports = {
+  browse,
+  readTenRandomly,
+  readOneImage,
+  readOneImageAndLetter,
+};
