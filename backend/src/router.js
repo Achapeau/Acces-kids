@@ -4,6 +4,6 @@ const router = express.Router();
 
 const animalControllers = require("./controllers/animalControllers");
 
-router.get("/alphabet", animalControllers.browse);
+router.get("/alphabetgame", animalControllers.readTenRandomly);
 
 module.exports = router;

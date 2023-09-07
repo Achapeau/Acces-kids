@@ -4,24 +4,17 @@ import axios from "axios";
 import speaker from "../assets/images/speaker.svg";
 import ModalAnimal from "../components/ModalAnimal";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 function Alphabet() {
   const [animals, setAnimals] = useState();
   const [isLoading, setIsLoading] = useState(true);
-
-  const openConnectionModal = () => {
-    window.connection.showModal();
-  };
-
-  function randomSize(arr) {
-    const randomNumber = Math.floor(Math.random() * arr.length);
-    return arr[randomNumber];
-  }
-
-  console.log(randomSize([52, 56, 60, 64]));
+  const [openModal, setOpenModal] = useState(false);
+  const [animalSelected, setAnimalSelected] = useState({});
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/alphabet")
+      .get(`${backendUrl}/alphabetgame`)
       .then((response) => {
         setAnimals(response.data);
         setIsLoading(false);
@@ -30,27 +23,28 @@ function Alphabet() {
   }, []);
 
   return (
-    <main className="bg-blue">
-      <div className="mx-11">
-        <div className="flex justify-center py-10">
-          <h1 className="text-5xl text-pink">Apprends l'alphabet</h1>
+    <main className="">
+      <div className={openModal ? "blur bg-blue h-[85vh]" : "blur-none"}>
+        <div className="flex justify-center pt-4 pb-10">
+          <h1 className="text-5xl text-pink">Apprends l&apos;alphabet</h1>
           <img src={speaker} alt="speaker" className="w-10 items-center ml-6" />
         </div>
         {isLoading ? (
           <h1>Chargement en cours</h1>
         ) : (
           <div className="">
-            <div className="grid grid-cols-5">
+            <div className="grid grid-cols-5 grid-rows-2">
               {animals.map((elem) => (
-                <div key={elem.id}>
+                <div
+                  key={elem.id}
+                  className="max-h-64 flex self-center justify-self-center"
+                >
                   <img
                     src={`../src/assets/images/${elem.image_animal}`}
-                    className="self-center"
-                    onClick={openConnectionModal}
-                  />
-                  <ModalAnimal
-                    image={animals.image_animal}
-                    name={animals.name}
+                    onClick={() => {
+                      setAnimalSelected(elem);
+                      setOpenModal(true);
+                    }}
                   />
                 </div>
               ))}
@@ -58,6 +52,9 @@ function Alphabet() {
           </div>
         )}
       </div>
+      {openModal && (
+        <ModalAnimal animal={animalSelected} setOpenModal={setOpenModal} />
+      )}
     </main>
   );
 }

@@ -12,4 +12,14 @@ const browse = async (req, res) => {
   }
 };
 
-module.exports = { browse };
+const readTenRandomly = async (req, res) => {
+  try {
+    const [result] = await AnimalInstance.findTenRandomly();
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json;
+  }
+};
+
+module.exports = { browse, readTenRandomly };
