@@ -15,18 +15,20 @@ function ButtonSpeakerOrange({ text }) {
   }, [isPlaying]);
 
   const startSpeech = () => {
-    if ('speechSynthesis' in window) {
+    if ("speechSynthesis" in window) {
       const sp = new SpeechSynthesisUtterance(text);
       const voices = speechSynthesis.getVoices();
 
       if (voices.length > 0) {
-        sp.voice = voices[1];
+        sp.voice = voices[3];
       }
 
       speechSynthesis.speak(sp);
       setSpeech(sp);
     } else {
-      alert("La synthèse vocale n'est pas prise en charge par votre navigateur.");
+      alert(
+        "La synthèse vocale n'est pas prise en charge par votre navigateur."
+      );
     }
   };
 
@@ -40,15 +42,22 @@ function ButtonSpeakerOrange({ text }) {
 
   return (
     <div className="">
-      <button onClick={() => setIsPlaying(!isPlaying)} className="w-fit h-[2rem] m-[0rem]">
-        <img src={speaker_orange} alt="icone speaker" className="object-contain" />
+      <button
+        onClick={() => setIsPlaying(!isPlaying)}
+        className="w-fit h-[2rem] m-[0rem]"
+      >
+        <img
+          src={speaker_orange}
+          alt="icone speaker"
+          className="object-contain"
+        />
       </button>
     </div>
   );
 }
 
 ButtonSpeakerOrange.propTypes = {
-    text: PropTypes.string.isRequired,
-  };
+  text: PropTypes.string.isRequired,
+};
 
 export default ButtonSpeakerOrange;
