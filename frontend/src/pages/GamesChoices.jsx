@@ -13,9 +13,9 @@ function GameChoices() {
       <MenuReturnButton />
       <ButtonIA />
       <div className="flex justify-center items-center">
-      <h2 className="font-title text-[3rem] text-yellow mt-[3rem] text-center"> Choisi un jeux </h2>
+      <h2 className="font-title text-[3rem] text-yellow mt-[3rem] text-center"> Choisis un jeux </h2>
       <div className="mt-[4.5em] ml-2">
-      <ButtonSpeakerOrange text="Choisi un jeu"/>
+      <ButtonSpeakerOrange text="Choisis un jeu"/>
       </div>
       </div>
       <div className="flex justify-evenly items-center m-[3em]">
