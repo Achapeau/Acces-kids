@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react'
-import NavBar from '../components/NavBar'
-import Footer from '../components/Footer'
 import MessageIA from '../components/messageIA'
 
 function IA() {
-    const [message, setMessage] = useState({})
+    const [messageOne, setMessageOne] = useState({})
     const [isActive, setIsActive] = useState(false)
     const [data, setData] = useState([])
+    const [messageTwo, setMessageTwo] = useState([]);
+    const [messageThree, setMessageThree] = useState([])
 
     const compter = () => {
         setIsActive(true)
-        setMessage({a:"manger", b:"boire", c:"dormir"})
+        setMessageOne("Eat")
+        setMessageTwo("Sleep")
+        setMessageThree('Rave')
         }
 
     const lire = () => {
@@ -43,9 +45,9 @@ function IA() {
     )
     
   return (
-    <div className="flex flex-col h-screen">
-        <NavBar />
-            <div className='flex items-center justify-center h-screen'>
+    <div className="flex items-center space-between justify-center h-[88vh]">
+        {/* <NavBar /> */}
+            <div className='flex items-center space-between justify-center'>
                 {!isActive ?
                     <div className='flex flex-wrap space-evenly rounded-lg h-[70vh] w-[70vw] bg-almostWhite mx-auto '>
                         <div className='m-auto rounded-lg h-[20vw] w-[20vw]'>
@@ -133,14 +135,14 @@ function IA() {
                         </div>                    
                     </div>}
                 {isActive && 
-                <MessageIA message={ message } setMessage={ setMessage } />}
+                <MessageIA messageOne={ messageOne } messageTwo={messageTwo} messageThree={messageThree} />}
 
             </div>
                 
             
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   )
 }          
 
-export default IA;
+export default IA
