@@ -40,7 +40,7 @@ function IAS() {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-between h-[70vh] bg-greenLight ">
+      <div className="flex flex-col items-center justify-between h-[70vh] bg-greenLight rounded-xl">
         <div className="flex justify-end  w-full mt-4 mr-6">
           <ButtonSpeakerOrange text="Appuis sur les flèches pour faire bouger le bonhomme" />
         </div>

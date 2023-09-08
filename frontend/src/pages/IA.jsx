@@ -33,12 +33,14 @@ function IA() {
   const compter = () => {
     setIsActive(true);
     setEducatif(false);
+    setIASurvie(false);
     setAlphabet([]);
     setChiffre(data2);
   };
 
   const lire = () => {
     setIsActive(true);
+    setIASurvie(false)
     setEducatif(false);
     setChiffre([]);
     setAlphabet(data);
@@ -53,6 +55,7 @@ function IA() {
   };
 
   const apprendre = () => {
+    setIASurvie(false)
     setIsActive(true);
     setChiffre([]);
     setAlphabet([]);
