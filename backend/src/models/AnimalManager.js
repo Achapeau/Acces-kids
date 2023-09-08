@@ -26,7 +26,7 @@ class AnimalManager extends Abstractmanager {
 
   findThreeImageAndLetter() {
     return this.database.query(
-      `SELECT image_animal, corresponding_letter FROM ${this.table} ORDER BY RAND() LIMIT 3`
+      `SELECT image_animal, corresponding_letter, name FROM ${this.table} ORDER BY RAND() LIMIT 3`
     );
   }
 

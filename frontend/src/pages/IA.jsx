@@ -32,6 +32,7 @@ function IA() {
     
     const compter = () => {
         setIsActive(true)
+        setEducatif(false)
         setAlphabet([])
         setChiffre(data2)
         
@@ -39,27 +40,25 @@ function IA() {
     
     const lire = () => {
         setIsActive(true)
+        setEducatif(false)
         setChiffre([])
         setAlphabet(data) 
     }
 
     const survie = () => {
-        setData([])
-        setData(...data, )
-        console.log(data);
+
     }
 
     const apprendre = () => {
         setIsActive(true)
-        setData([])
+        setChiffre([])
+        setAlphabet([]);
         setEducatif(true)
 
     }
 
     const explication = () => {
-        setData([])
 
-        console.log(data);
     }
     
   return (
