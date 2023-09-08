@@ -5,6 +5,7 @@ import JeuNombres from "../pages/JeuNombres";
 import Alphabet from "../pages/Alphabet";
 import GameSurvie from "../pages/GameSurvie";
 import GameChoices from "../pages/GamesChoices";
+import IA from "../pages/IA"
 
 function AppRoutes() {
   return (
@@ -13,6 +14,7 @@ function AppRoutes() {
       <Route path="/gamesurvie" element={<GameSurvie />} />
       <Route path="/jeux" element={<GameChoices />} />
       <Route path="/jeux/alphabet" element={<Alphabet />} />
+      <Route path="/ia" element={<IA />} />
       <Route path="*" element={<NoMatch />} />
       <Route path="/jeux/nombres" element={<JeuNombres />} />
     </Routes>
