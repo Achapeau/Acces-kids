@@ -20,42 +20,60 @@ import ButtonSpeakerOrange from "../components/ButtonSpeakerOrange";
 import ButtonSpeakerGreen from "../components/ButtonSpeakerGreen";
 import MenuReturnButton from "../components/MenuReturnButton";
 import ButtonIA from "../components/Button_ia";
+import Good from "../assets/images/Fallout-Pip-Boy-PNG-Picture-removebg-preview.png"
 
 function Game() {
   const [characterPosition, setcharacterPosition] = useState({ x: 50, y: 50 });
   const [score, setScore] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
-  const [setPopupImageSrc] = useState(null);
+  const [showPopup2, setShowPopup2] = useState(false);
 
-  const image12Coordinates = {
-    x1: 40,
-    x2: 70,
-    y1: 60,
-    y2: 80,
-  };
+const imagemaisondelabre={
+  x1: 11,
+  x2: 11,
+  y1: 38,
+  y2: 38,
+}
+
+const imageSerpentCoordinates= {
+  x1: 91,
+  x2: 91,
+  y1: 38,
+  y2: 38,
+};
+
+// Coordonnées de l'image 12 (School)
+  const imageecole = {
+  x1:51,
+  x2: 51,
+  y1: 18,
+  y2: 18,
+};
+  
+
   
   // Coordonnées de l'image 15 (Potager)
-  const image15Coordinates = {
+  const imagepotager = {
     x1: 80,
-    x2: 95,
-    y1: 10,
-    y2: 30,
+    x2: 91,
+    y1: 80,
+    y2: 91,
   };
 
   // Coordonnées de l'image 9 (Lac Danger)
-  const image9Coordinates = {
-    x1: 10,
-    x2: 42,
-    y1: 8,
-    y2: 40,
-  };
+  const imagemarecage = {
+  x1: 41,
+  x2: 41,
+  y1: 78,
+  y2: 78,
+};
   
   // Coordonnées de l'image 13 (Champi)
-  const image13Coordinates = {
+  const imagechampi = {
     x1: 60,
-    x2: 92,
-    y1: 10,
-    y2: 42,
+    x2: 80,
+    y1: 70,
+    y2: 90,
   };
 
   const moveLeft = () => {
@@ -98,49 +116,59 @@ function Game() {
   const checkPopup = () => {
     // Vérifiez si le personnage se déplace dans la zone de l'image 9 (Lac Danger)
     if (
-      characterPosition.x >= image9Coordinates.x1 &&
-      characterPosition.x <= image9Coordinates.x2 &&
-      characterPosition.y >= image9Coordinates.y1 &&
-      characterPosition.y <= image9Coordinates.y2
+      (characterPosition.x >= imagemarecage.x1 &&
+        characterPosition.x <= imagemarecage.x2 &&
+        characterPosition.y >= imagemarecage.y1 &&
+        characterPosition.y <= imagemarecage.y2) ||
+      // Vérifiez si le personnage est sur l'image 13 (Champi)
+      (characterPosition.x >= imagechampi.x1 &&
+        characterPosition.x <= imagechampi.x2 &&
+        characterPosition.y >= imagechampi.y1 &&
+        characterPosition.y <= imagechampi.y2) ||
+      // Vérifiez si le personnage est sur l'image serpent
+      (characterPosition.x >= imageSerpentCoordinates.x1 &&
+        characterPosition.x <= imageSerpentCoordinates.x2 &&
+        characterPosition.y >= imageSerpentCoordinates.y1 &&
+        characterPosition.y <= imageSerpentCoordinates.y2)||
+
+        (characterPosition.x >= imagemaisondelabre.x1 &&
+          characterPosition.x <= imagemaisondelabre.x2 &&
+          characterPosition.y >= imagemaisondelabre.y1 &&
+          characterPosition.y <= imagemaisondelabre.y2)
     ) {
-      setShowPopup(true);
-      setPopupImageSrc(marecage);
+
+  
+    setShowPopup(true);
+    } else {
+    setShowPopup(false);
     }
-    // Vérifiez si le personnage se déplace dans la zone de l'image 13 (Champi)
-    else if (
-      characterPosition.x >= image13Coordinates.x1 &&
-      characterPosition.x <= image13Coordinates.x2 &&
-      characterPosition.y >= image13Coordinates.y1 &&
-      characterPosition.y <= image13Coordinates.y2
+    
+     // Vérifiez si le personnage se déplace dans la zone de l'image 12 (School)
+     if (
+      characterPosition.x >= imageecole.x1 &&
+      characterPosition.x <= imageecole.x2 &&
+      characterPosition.y >= imageecole.y1 &&
+      characterPosition.y <= imageecole.y2
     ) {
-      setShowPopup(true);
-      setPopupImageSrc(champi);
-    }
-    // Vérifiez si le personnage se déplace dans la zone de l'image 12 (School)
-    else if (
-      characterPosition.x >= image12Coordinates.x1 &&
-      characterPosition.x <= image12Coordinates.x2 &&
-      characterPosition.y >= image12Coordinates.y1 &&
-      characterPosition.y <= image12Coordinates.y2
-    ) {
-      setShowPopup(true);
-      setPopupImageSrc(ecole);
+      setShowPopup2(true);
     }
     // Vérifiez si le personnage se déplace dans la zone de l'image 15 (Potager)
     else if (
-      characterPosition.x >= image15Coordinates.x1 &&
-      characterPosition.x <= image15Coordinates.x2 &&
-      characterPosition.y >= image15Coordinates.y1 &&
-      characterPosition.y <= image15Coordinates.y2
+      characterPosition.x >= imagepotager.x1 &&
+      characterPosition.x <= imagepotager.x2 &&
+      characterPosition.y >= imagepotager.y1 &&
+      characterPosition.y <= imagepotager.y2
     ) {
-      setShowPopup(true);
-      setPopupImageSrc(nope);
+      setShowPopup2(true);
     }
-    // Si le personnage n'est pas dans les zones des images 9, 13, 12, et 15, masquez la popup
+    // Si le personnage n'est pas dans les zones des images 12 et 15, masquez la deuxième popup
     else {
-      setShowPopup(false);
+      setShowPopup2(false);
     }
   };
+  
+  console.log(characterPosition.x, characterPosition.y)
+  
   
   
 
@@ -190,6 +218,28 @@ function Game() {
               </div>
             </div>
           )}
+
+{showPopup2 && (
+  <div className="justify-center items-center flex absolute top-0 left-0 w-full h-full">
+    <div className="bg-blue opacity-100 z-30 p-4 rounded-lg shadow-lg h-[30vh] w-[25vw]">
+      <img
+        src={Good}
+        alt="Good"
+        className="w-[15rem] h-32 object-contain"
+      />
+      <div className="m-2">
+        <ButtonSpeakerGreen text="Message de la deuxième popup" />
+      </div>
+      <button
+        className="text-almostWhite text-xs mt-2 block mx-auto"
+        onClick={() => setShowPopup2(false)}
+      >
+        Fermer
+      </button>
+    </div>
+  </div>
+)}
+
 
           <img
             src={marecage}
