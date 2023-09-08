@@ -26,12 +26,12 @@ export default {
     animation: {
       "waving-illus": "wave 2s linear infinite",
       "waving-illustra": "wave 2s linear infinite 700ms",
-      
     },
-    extend: {      
+    extend: {
       backgroundImage: {
-      'background-modal': "url('./src/assets/images/background-acceskids.png')",
-    },
+        "background-modal":
+          "url('./src/assets/images/background-acceskids.png')",
+      },
       keyframes: {
         slideFromTop: {
           from: {
@@ -43,9 +43,33 @@ export default {
             opacity: "1",
           },
         },
+        goRight: {
+          "0%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(200%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        goLeft: {
+          "0%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(-200%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        goUp: {
+          "0%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-80%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        goDown: {
+          "0%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(80%)" },
+          "100%": { transform: "translateY(0)" },
+        },
       },
       animation: {
         slide: "slideFromTop 1s ",
+        moveRight: "goRight 3s",
+        moveLeft: "goLeft 3s",
+        moveUp: "goUp 3s",
+        moveDown: "goDown 3s",
       },
     },
     fontFamily: {
