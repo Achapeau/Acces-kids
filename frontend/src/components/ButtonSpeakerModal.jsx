@@ -20,7 +20,7 @@ function ButtonSpeakerModal({ text }) {
       const voices = speechSynthesis.getVoices();
 
       if (voices.length > 0) {
-        sp.voice = voices[5];
+        sp.voice = voices[0];
       }
 
       speechSynthesis.speak(sp);
