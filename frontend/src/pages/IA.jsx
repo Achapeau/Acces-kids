@@ -47,6 +47,9 @@ function IA() {
   const survie = () => {
     setIsActive(true);
     setIASurvie(true);
+    setEducatif(false);
+    setAlphabet([]);
+    setChiffre([]);
   };
 
   const apprendre = () => {

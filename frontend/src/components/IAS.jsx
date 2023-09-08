@@ -39,38 +39,40 @@ function IAS() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-between h-[70vh] bg-greenLight ">
-      <div className="flex justify-end  w-full mt-4 mr-6">
-        <ButtonSpeakerOrange text="Appuis sur les flèches pour faire bouger le bonhomme" />
-      </div>
-      <div className="h-[100px] mb-10" onClick={() => moveUp()}>
-        <img src={haut} className="h-[100px]" />
-        <div className="-translate-y-24 translate-x-15 opacity-1">
-          <ButtonSpeakerIA text="Déplace toi vers le haut" />
+    <>
+      <div className="flex flex-col items-center justify-between h-[70vh] bg-greenLight ">
+        <div className="flex justify-end  w-full mt-4 mr-6">
+          <ButtonSpeakerOrange text="Appuis sur les flèches pour faire bouger le bonhomme" />
         </div>
-      </div>
-      <div className="flex justify-between items-center w-full px-5">
-        <div onClick={() => moveLeft()}>
-          <img src={gauche} className="h-[100px] translate-y-10" />
-          <div className="-translate-y-16 translate-x-15 opacity-0">
-            <ButtonSpeakerIA text="Déplace toi vers la gauche" />
+        <div className="h-[100px] mb-10" onClick={() => moveUp()}>
+          <img src={haut} className="h-[100px]" />
+          <div className="-translate-y-24 translate-x-15 opacity-0">
+            <ButtonSpeakerIA text="Déplace toi vers le haut" />
           </div>
         </div>
-        <img src={bonhomme} className={`w-[7vw] ${animation} z-10`} />
-        <div onClick={() => moveRight()}>
-          <img src={droite} className="h-[100px] translate-y-10" />
-          <div className="-translate-y-16 translate-x-15 opacity-0">
-            <ButtonSpeakerIA text="Déplace toi vers la droite" />
+        <div className="flex justify-between items-center w-full px-5">
+          <div onClick={() => moveLeft()}>
+            <img src={gauche} className="h-[100px] translate-y-10" />
+            <div className="-translate-y-16 translate-x-15 opacity-0">
+              <ButtonSpeakerIA text="Déplace toi vers la gauche" />
+            </div>
+          </div>
+          <img src={bonhomme} className={`w-[7vw] ${animation} z-10`} />
+          <div onClick={() => moveRight()}>
+            <img src={droite} className="h-[100px] translate-y-10" />
+            <div className="-translate-y-16 translate-x-15 opacity-0">
+              <ButtonSpeakerIA text="Déplace toi vers la droite" />
+            </div>
+          </div>
+        </div>
+        <div onClick={() => moveDown()} className="mt-10">
+          <img src={bas} className="h-[100px]" />
+          <div className="-translate-y-24 translate-x-15 opacity-0">
+            <ButtonSpeakerIA text="Déplace toi vers le bas" />
           </div>
         </div>
       </div>
-      <div onClick={() => moveDown()} className="mt-10">
-        <img src={bas} className="h-[100px]" />
-        <div className="-translate-y-24 translate-x-15 opacity-0">
-          <ButtonSpeakerIA text="Déplace toi vers le bas" />
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
 
