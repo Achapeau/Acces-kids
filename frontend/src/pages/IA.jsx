@@ -48,10 +48,10 @@ function IA() {
 
   const survie = () => {
     setIsActive(true);
-    setIASurvie(true);
     setEducatif(false);
     setAlphabet([]);
     setChiffre([]);
+    setIASurvie(true);
   };
 
   const apprendre = () => {
@@ -61,7 +61,10 @@ function IA() {
     setAlphabet([]);
     setEducatif(true);
   };
-  console.log(educatif);
+  console.log("e", educatif);
+   
+
+
 
   const explication = () => {};
 
