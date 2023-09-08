@@ -228,7 +228,7 @@ const imageSerpentCoordinates= {
         className="w-[15rem] h-32 object-contain"
       />
       <div className="m-2">
-        <ButtonSpeakerGreen text="Message de la deuxième popup" />
+        <ButtonSpeakerGreen text="aucun danger" />
       </div>
       <button
         className="text-almostWhite text-xs mt-2 block mx-auto"
