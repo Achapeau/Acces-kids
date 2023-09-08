@@ -20,7 +20,7 @@ function ButtonSpeakerGreen({ text }) {
       const voices = speechSynthesis.getVoices();
 
       if (voices.length > 0) {
-        sp.voice = voices[3];
+        sp.voice = voices[1];
       }
 
       speechSynthesis.speak(sp);
@@ -42,11 +42,8 @@ function ButtonSpeakerGreen({ text }) {
 
   return (
     <div className="">
-      <button
-        onClick={() => setIsPlaying(!isPlaying)}
-        className="w-fit h-[2rem] m-[0rem]"
-      >
-        <img src={speaker} alt="icone speaker" className="object-contain" />
+      <button onClick={() => setIsPlaying(!isPlaying)} className="w-fit h-[2rem] max-[1000px]:h-[0.5rem] m-[0rem]">
+        <img src={speaker} alt="icone speaker" className="object-contain max-[1000px]:h-[1.2rem]" />
       </button>
     </div>
   );

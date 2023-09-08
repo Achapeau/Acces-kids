@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import speaker_orange from "../assets/images/SpeakerOrange.png";
+import speaker from "../assets/images/Speaker.png";
 
-function ButtonSpeakerOrange({ text }) {
+function ButtonSpeakerModal({ text }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [speech, setSpeech] = useState(null);
 
@@ -20,7 +20,7 @@ function ButtonSpeakerOrange({ text }) {
       const voices = speechSynthesis.getVoices();
 
       if (voices.length > 0) {
-        sp.voice = voices[1];
+        sp.voice = voices[5];
       }
 
       speechSynthesis.speak(sp);
@@ -42,15 +42,18 @@ function ButtonSpeakerOrange({ text }) {
 
   return (
     <div className="">
-      <button onClick={() => setIsPlaying(!isPlaying)} className="w-fit h-[2rem] max-[1000px]:h-[0.5em] m-[0rem]">
-        <img src={speaker_orange} alt="icone speaker" className="object-contain max-[1000px]:h-[1.5em]" />
+      <button
+        onClick={() => setIsPlaying(!isPlaying)}
+        className="w-fit h-[5rem] m-[0rem]"
+      >
+        <img src={speaker} className="h-14" alt="icone speaker" />
       </button>
     </div>
   );
 }
 
-ButtonSpeakerOrange.propTypes = {
+ButtonSpeakerModal.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-export default ButtonSpeakerOrange;
+export default ButtonSpeakerModal;
