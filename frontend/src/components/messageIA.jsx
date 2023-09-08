@@ -18,28 +18,31 @@ function messageIA({ chiffre , alphabet, educatif }) {
     const [educ1, setEduc1] = useState('')
     const [educ2, setEduc2] = useState('')
     const [educ3, setEduc3] = useState('')
+    const [verifLetter, setVerifLetter] = useState(false)
 
     useEffect(() => {
         setStateOne(false)
         setStateTwo(false)
         setStateThree(false)
         if (alphabet.length) {
+            setVerifLetter(true)
             setTimeout(() => {
                 setStateOne(true);
                 setUrlImageOne(alphabet[0].image_animal)
-                setValue1(alphabet[0].corresponding_letter)
+                setValue1(`${alphabet[0].corresponding_letter}, comme ${alphabet[0].name}`)
             }, 3000)
             setTimeout(() => {
                 setStateTwo(true)
                 setUrlImageTwo(alphabet[1].image_animal)
-                setValue2(alphabet[1].corresponding_letter)
+                setValue2(`${alphabet[1].corresponding_letter}, comme ${alphabet[1].name}`)
             }, 6000);
             setTimeout(() => {
                 setStateThree(true)
                 setUrlImageThree(alphabet[2].image_animal)
-                setValue3(alphabet[2].corresponding_letter)
+                setValue3(`${alphabet[2].corresponding_letter}, comme ${alphabet[2].name}`)
             }, 9000)
         } else if (chiffre.length) {
+            setVerifLetter(false)
             setTimeout(() => {
                 setStateOne(true);
                 setUrlImageOne(chiffre[0].image_animal)
@@ -57,6 +60,7 @@ function messageIA({ chiffre , alphabet, educatif }) {
             }, 9000)
 
         } else if (educatif) {
+            setVerifLetter(false)
             setTimeout(() => {
                 setStateOne(true)
                 setUrlImageOne('lecture.png')
@@ -90,20 +94,20 @@ function messageIA({ chiffre , alphabet, educatif }) {
             <img src={`${url}${urlImageOne}`} alt={`${value1}`} className='h-[12vh] w-[12vh]' />
             <ButtonSpeakerGreen text={`${value1}`} />
         </div>}
-        {stateTwo && !educatif &&
+        {stateTwo && !educatif && !verifLetter &&
         <div className='flex items-center justify-center h-[20vh] w-[50vw] text-3xl'>
             
             <img src={`${url}${urlImageOne}`} alt={`${value1}`} className='h-[12vh] w-[12vh]' />
             <img src={`${url}${urlImageTwo}`} alt={`${value2}`} className='h-[12vh] w-[12vh]' />
             <ButtonSpeakerGreen text={`${value2}`} />
         </div>}
-        {stateTwo && educatif &&
+        {stateTwo && (educatif || verifLetter) &&
         <div className='flex items-center justify-center h-[20vh] w-[50vw] text-3xl'>
            
             <img src={`${url}${urlImageTwo}`} alt={`${value2}`} className='h-[12vh] w-[12vh]' />
             <ButtonSpeakerGreen text={`${value2}`} />
         </div>}
-        {stateThree && !educatif &&
+        {stateThree && !educatif && !verifLetter &&
         <div className='flex items-center justify-center h-[20vh] w-[50vw] text-3xl'>
            
             <img src={`${url}${urlImageOne}`} alt={`${value1}`} className='h-[12vh] w-[12vh]' />
@@ -111,7 +115,7 @@ function messageIA({ chiffre , alphabet, educatif }) {
             <img src={`${url}${urlImageThree}`} alt={`${value3}`} className='h-[12vh] w-[12vh]' />
             <ButtonSpeakerGreen text={`${value3}`} />
         </div>}
-        {stateThree  && educatif &&
+        {stateThree  && (educatif || verifLetter) &&
         <div className='flex items-center justify-center h-[20vh] w-[50vw] text-3xl'>
             
             <img src={`${url}${urlImageThree}`} alt={`${value3}`} className='h-[12vh] w-[12vh]' />
