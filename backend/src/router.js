@@ -5,8 +5,8 @@ const router = express.Router();
 const animalControllers = require("./controllers/animalControllers");
 
 router.get("/alphabetgame", animalControllers.readTenRandomly);
-router.get("/iaimage", animalControllers.readOneImage);
-router.get("/iaimageletter", animalControllers.readOneImageAndLetter);
+router.get("/iacompter", animalControllers.readRandomOneImage);
+router.get("/iaalphabet", animalControllers.readThreeImageAndLetter);
 
 router.get("/numbers/:number", animalControllers.getImages);
 
