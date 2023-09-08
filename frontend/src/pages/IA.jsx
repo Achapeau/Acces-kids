@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from "axios";
 import MessageIA from '../components/messageIA'
+import MenuReturnButton from '../components/MenuReturnButton'
 
 function IA() {
     const [chiffre, setChiffre] = useState('')
@@ -27,8 +28,6 @@ function IA() {
         .catch((err) => console.error(err));
         
     }, []);
-
-    console.log(alphabet);
     
     const compter = () => {
         setIsActive(true)
@@ -54,20 +53,22 @@ function IA() {
         setChiffre([])
         setAlphabet([]);
         setEducatif(true)
-
+        
     }
+    console.log(educatif);
 
     const explication = () => {
 
     }
     
   return (
-    <div className="flex items-center space-between justify-center h-[88vh]">
+    <div className="h-[88vh]">
+        <MenuReturnButton />
 
-            <div className='flex items-center space-between justify-center'>
+            <div className='flex items-center space-between justify-center relative'>
                 {!isActive ?
-                    <div className='flex flex-wrap space-evenly rounded-lg h-[70vh] w-[70vw] bg-almostWhite mx-20 '>
-                        <div className='m-auto rounded-lg h-[20vw] w-[20vw]'>
+                    <div className='flex flex-wrap space-evenly rounded-xl h-[70vh] w-[70vw] bg-almostWhite mx-20 absolute -top-20 left-[13vw] '>
+                        <div className='m-auto rounded-xl h-[20vw] w-[20vw]'>
                             <button 
                                 type='button'
                                 onClick={compter}                            
@@ -75,7 +76,7 @@ function IA() {
                                 <img src="../src/assets/images/compter-max.png" alt="compter" />
                             </button>
                         </div>
-                        <div className='m-auto rounded-lg h-[20vw] w-[20vw]'>
+                        <div className='m-auto rounded-xl h-[20vw] w-[20vw]'>
                             <button 
                                 type='button'
                                 onClick={lire}                            
@@ -83,7 +84,7 @@ function IA() {
                                 <img src="../src/assets/images/alphabet-max.png" alt="alphabet" />
                             </button>
                         </div>
-                        <div className='m-auto rounded-lg h-[20vw] w-[20vw]'>
+                        <div className='m-auto rounded-xl h-[20vw] w-[20vw]'>
                             <button 
                                 type='button'
                                 onClick={survie}                            
@@ -91,7 +92,7 @@ function IA() {
                                 <img src="../src/assets/images/jeu-survie-max.png" alt="survie" />
                             </button>
                         </div>
-                        <div className='m-auto rounded-lg h-[20vw] w-[20vw]'>
+                        <div className='m-auto rounded-xl h-[20vw] w-[20vw]'>
                             <button 
                                 type='button'
                                 onClick={apprendre}                            
@@ -99,7 +100,7 @@ function IA() {
                                 <img src="../src/assets/images/jeux-educ-max.png" alt="apprendre" />
                             </button>
                         </div>
-                        <div className='m-auto rounded-lg h-[20vw] w-[20vw]'>
+                        <div className='m-auto rounded-xl h-[20vw] w-[20vw]'>
                             <button 
                                 type='button'
                                 onClick={explication}                            
@@ -109,8 +110,8 @@ function IA() {
                         </div>                    
                     </div>
                 :
-                <div className='flex flex-wrap space-evenly rounded-lg h-[20vh] w-[20vw] bg-almostWhite mx-auto -b-15'>
-                        <div className='m-auto rounded-lg h-[6vw] w-[6vw]'>
+                <div className='flex flex-wrap space-evenly rounded-xl h-[30vh] w-[30vw] bg-almostWhite mx-auto absolute top-[10vh] left-[5vw] z-0' >
+                        <div className='m-auto rounded-xl h-[8vw] w-[8vw] z-50'>
                             <button 
                                 type='button'
                                 onClick={compter}                            
@@ -118,7 +119,7 @@ function IA() {
                                 <img src="../src/assets/images/compter-max.png" alt="compter" />
                             </button>
                         </div>
-                        <div className='m-auto rounded-lg h-[6vw] w-[6vw]'>
+                        <div className='m-auto rounded-xl h-[8vw] w-[8vw] z-50'>
                             <button 
                                 type='button'
                                 onClick={lire}                            
@@ -126,7 +127,7 @@ function IA() {
                                 <img src="../src/assets/images/alphabet-max.png" alt="alphabet" />
                             </button>
                         </div>
-                        <div className='m-auto rounded-lg h-[6vw] w-[6vw]'>
+                        <div className='m-auto rounded-xl h-[8vw] w-[8vw] z-50'>
                             <button 
                                 type='button'
                                 onClick={survie}                            
@@ -134,7 +135,7 @@ function IA() {
                                 <img src="../src/assets/images/jeu-survie-max.png" alt="survie" />
                             </button>
                         </div>
-                        <div className='m-auto rounded-lg h-[6vw] w-[6vw]'>
+                        <div className='m-auto rounded-xl h-[8vw] w-[8vw] z-50'>
                             <button 
                                 type='button'
                                 onClick={apprendre}                            
@@ -142,7 +143,7 @@ function IA() {
                                 <img src="../src/assets/images/jeux-educ-max.png" alt="apprendre" />
                             </button>
                         </div>
-                        <div className='m-auto rounded-lg h-[6vw] w-[6vw]'>
+                        <div className='m-auto rounded-xl h-[8vw] w-[8vw] z-50'>
                             <button 
                                 type='button'
                                 onClick={explication}                            
@@ -152,7 +153,7 @@ function IA() {
                         </div>                    
                     </div>}
                 {isActive && 
-                <MessageIA chiffre={ chiffre } alphabet={ alphabet } educatif={ educatif } />}
+                <MessageIA chiffre={ chiffre } setChiffre={ setChiffre } alphabet={ alphabet } setAlphabet={ setAlphabet } educatif={ educatif } setEducatif={ setEducatif } />}
 
             </div>
                 
