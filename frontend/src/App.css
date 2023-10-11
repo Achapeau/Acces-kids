@@ -4,12 +4,12 @@
 
 @font-face {
     font-family: "telescope";
-    src: url("../public/fonts/AnnieUseYourTelescope-Regular.ttf");
+    src: url("/fonts/AnnieUseYourTelescope-Regular.ttf");
   }
 
   @font-face {
     font-family: "cherry";
-    src: url("../public/fonts/CherryBombOne-Regular.ttf");
+    src: url("/fonts/CherryBombOne-Regular.ttf");
   }
 
   @layer base {
